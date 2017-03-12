@@ -6,7 +6,6 @@ namespace SampleExcelExporter.Tests
 {
     public class ExcelExportTests
     {
-
         public class TestRecord
         {
             public TestRecord(string name, string value)

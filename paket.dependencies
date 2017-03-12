@@ -1,0 +1,13 @@
+source https://nuget.org/api/v2
+
+nuget EPPlus = 4.1.0
+
+nuget Fake
+
+nuget GitVersion.CommandLine
+
+nuget xunit.runner.console
+
+nuget xunit.core
+
+nuget NuGet.CommandLine
