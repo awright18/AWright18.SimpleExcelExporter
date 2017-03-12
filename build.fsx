@@ -10,7 +10,7 @@ open System;
 
 //Properties
 let buildDir = "./build"
-let artifactsDir = "./artifacts"
+let artifactsDir = getBuildParamOrDefault "artifactsDir" "./artifacts"
 
 //AssemblyInfo
 let projectName = "SimpleExcelExporter";
