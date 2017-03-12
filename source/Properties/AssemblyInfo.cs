@@ -7,7 +7,7 @@ using System.Reflection;
 [assembly: AssemblyCopyrightAttribute("2017")]
 [assembly: AssemblyVersionAttribute("0.1.0.0")]
 [assembly: AssemblyFileVersionAttribute("0.1.0.0")]
-[assembly: AssemblyInformationalVersionAttribute("0.1.0+1.Branch.master.Sha.7ab8a161f1063a90750fe252c5c46a316079eca1")]
+[assembly: AssemblyInformationalVersionAttribute("0.1.0+2.Branch.master.Sha.2a26fd884537d5f5dca36c012a89d558cde797a1")]
 [assembly: AssemblyMetadataAttribute("githash","")]
 namespace System {
     internal static class AssemblyVersionInformation {
@@ -17,7 +17,7 @@ namespace System {
         internal const System.String AssemblyCopyright = "2017";
         internal const System.String AssemblyVersion = "0.1.0.0";
         internal const System.String AssemblyFileVersion = "0.1.0.0";
-        internal const System.String AssemblyInformationalVersion = "0.1.0+1.Branch.master.Sha.7ab8a161f1063a90750fe252c5c46a316079eca1";
+        internal const System.String AssemblyInformationalVersion = "0.1.0+2.Branch.master.Sha.2a26fd884537d5f5dca36c012a89d558cde797a1";
         internal const System.String AssemblyMetadata_githash = "";
     }
 }
