@@ -18,6 +18,20 @@ namespace SampleExcelExporter.Tests
             public string Value { get; set; }
         }
 
+        public class TestRecord2
+        {
+            public TestRecord2(string name, string value1, string value2)
+            {
+                Name = name;
+                Value1 = value1;
+                Value2 = value2;
+            }
+
+            public string Name { get; set; }
+            public string Value1 { get; set; }
+            public string Value2 { get; set; }
+        }
+
         private IEnumerable<TestRecord> GetSampleTestRecords()
         {
             return new TestRecord[]
@@ -26,6 +40,17 @@ namespace SampleExcelExporter.Tests
                 new TestRecord("Suzy", "sells sea shells")
             };
         }
+
+        private IEnumerable<TestRecord2> GetSampleTestRecords2()
+        {
+            return new TestRecord2[]
+            {
+                new TestRecord2("Joe", "is cool","enough"),
+                new TestRecord2("Suzy", "sells sea shells","by the")
+            };
+        }
+
+
 
         [Fact]
         public void CanExportRecordsToExcel()
@@ -61,7 +86,25 @@ namespace SampleExcelExporter.Tests
             var testRecords = GetSampleTestRecords();
 
             testRecords.SaveRecordsToExcelWorksheet("sample.xlsx");
+            testRecords.SaveRecordsToExcelWorksheet("sample.xlsx", o =>
+            {
+                o.OverwriteExistingDocument = false;
+
+            });
+        }
+
+        [Fact]
+        public void CanExportRecordsToSameFile2()
+        {
+            var testRecords = GetSampleTestRecords();
+            var testRecords2 = GetSampleTestRecords2();
+
             testRecords.SaveRecordsToExcelWorksheet("sample.xlsx");
+            testRecords2.SaveRecordsToExcelWorksheet("sample.xlsx", o =>
+            {
+                o.OverwriteExistingDocument = false;
+
+            });
         }
 
     }

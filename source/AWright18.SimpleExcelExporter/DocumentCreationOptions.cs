@@ -11,6 +11,8 @@ namespace AWright18.SimpleExcelExporter
 
         public bool IncludeHeaderRow { get; set; } = true;
 
+        public bool OverwriteExistingDocument { get; set; } = true;
+
         private readonly List<string> _ignoredColumns;
 
         public IEnumerable<string> IgnoredColumns => _ignoredColumns;
