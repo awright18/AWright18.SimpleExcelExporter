@@ -13,14 +13,13 @@ let buildDir = "./build"
 let artifactsDir = getBuildParamOrDefault "artifactsDir" "./artifacts"
 
 //AssemblyInfo
-let projectName = "SimpleExcelExporter";
+let projectName = "AWright18.SimpleExcelExporter";
 let authors = ["Adam Wright"]
 let projectDecription = "Extract data into an excel file with ease. ";
 let projectSummary = "Extract data into an excel file with ease. "
 let tags = "C# Excel"
 
 let copyright = DateTime.Now.Year.ToString()
-
 
 //Version Info
 let gitversionPath = @"packages\GitVersion.CommandLine\tools\GitVersion.exe"
@@ -102,7 +101,7 @@ Target "Package" (fun _ ->
               Dependencies = dependencies
               WorkingDir = "."
          }) 
-        "SimpleExcelExporter.nuspec"
+        "AWright18.SimpleExcelExporter.nuspec"
 )
 
 Target "Publish" (fun _ ->

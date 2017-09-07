@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SimpleExcelExporter;
+using AWright18.SimpleExcelExporter;
 using Xunit;
 
 namespace SampleExcelExporter.Tests
@@ -39,6 +39,29 @@ namespace SampleExcelExporter.Tests
                 o.DoNotWriteColumn("Value");
                 o.RenameColumn("Value","Yo");
             });
+        }
+
+        [Fact]
+        public void CanExportRecordsToExcelUsingExtensionMethods()
+        {
+            var testRecords = GetSampleTestRecords();
+
+            testRecords.SaveRecordsToExcelWorksheet("sample.xlsx", (o) =>
+            {
+                o.WorksheetName = "Blah";
+                o.HideColumn("Name");
+                o.DoNotWriteColumn("Value");
+                o.RenameColumn("Value", "Yo");
+            });
+        }
+
+        [Fact]
+        public void CanExportRecordsToSameFile()
+        {
+            var testRecords = GetSampleTestRecords();
+
+            testRecords.SaveRecordsToExcelWorksheet("sample.xlsx");
+            testRecords.SaveRecordsToExcelWorksheet("sample.xlsx");
         }
 
     }
