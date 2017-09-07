@@ -1,6 +1,7 @@
-using System.Text;
 using System.Linq;
-namespace SimpleExcelExporter
+using System.Text;
+
+namespace AWright18.SimpleExcelExporter
 {
     public static class ExcelExtentions
     {
@@ -8,8 +9,8 @@ namespace SimpleExcelExporter
         {
             var chars = value.ToCharArray();
             var spacedStringBuilder = new StringBuilder();
-            bool isFirstCharacter = true;
-            for (int i = 0; i < chars.Count(); i++)
+            var isFirstCharacter = true;
+            for (var i = 0; i < chars.Count(); i++)
             {
                 var currentCharacter = chars[i];
 
@@ -36,7 +37,7 @@ namespace SimpleExcelExporter
 
         public static object GetValue(this object o, string propertyName)
         {
-            var value = o.GetType().GetProperty(propertyName).GetValue(o, null);
+            var value = o?.GetType().GetProperty(propertyName)?.GetValue(o, null);
             return value;
         }
     }

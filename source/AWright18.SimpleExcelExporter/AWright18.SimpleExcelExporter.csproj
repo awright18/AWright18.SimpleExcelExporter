@@ -7,10 +7,11 @@
     <ProjectGuid>{7D8DBD67-8327-4A13-9E58-41082E28D404}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleExcelExporter</RootNamespace>
-    <AssemblyName>SimpleExcelExporter</AssemblyName>
+    <RootNamespace>AWright18.SimpleExcelExporter</RootNamespace>
+    <AssemblyName>AWright18.SimpleExcelExporter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace SimpleExcelExporter
+namespace AWright18.SimpleExcelExporter
 {
     internal class DataTableExcelExporter
     {
@@ -14,11 +14,11 @@ namespace SimpleExcelExporter
 
             foreach (DataColumn column in dt.Columns)
             {
-                tableIndex.Add(counter,column.ColumnName);
+                tableIndex.Add(counter, column.ColumnName);
                 counter++;
             }
 
-            return tableIndex;            
+            return tableIndex;
         };
 
         internal static Func<dynamic, int, object> GetValueFromRow = (dr, i) =>

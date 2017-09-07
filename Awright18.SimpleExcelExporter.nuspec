@@ -6,8 +6,8 @@
   <authors>@authors@</authors>
   <owners>@authors@</owners>
   <summary>@summary@</summary>
-  <projectUrl>https://github.com/awright18/SimpleExcelExporter</projectUrl>
-  <licenseUrl>https://github.com/awright18/SimpleExcelExporter/blob/master/LICENSE</licenseUrl>
+  <projectUrl>https://github.com/awright18/AWright18.SimpleExcelExporter</projectUrl>
+  <licenseUrl>https://github.com/awright18/AWright18.SimpleExcelExporter/blob/master/LICENSE</licenseUrl>
   <requireLicenseAcceptance>false</requireLicenseAcceptance>
   <description>@description@</description>
   <releaseNotes>@releaseNotes@</releaseNotes>

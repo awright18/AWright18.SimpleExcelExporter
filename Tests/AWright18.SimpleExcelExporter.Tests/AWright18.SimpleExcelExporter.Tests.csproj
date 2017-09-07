@@ -7,8 +7,8 @@
     <ProjectGuid>{40B68775-18AB-40A4-B6D2-AC4AECDBA641}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleExcelExporter.Tests</RootNamespace>
-    <AssemblyName>SampleExcelExporter.Tests</AssemblyName>
+    <RootNamespace>AWright18.SampleExcelExporter.Tests</RootNamespace>
+    <AssemblyName>AWright18.SampleExcelExporter.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,7 +47,7 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\source\SimpleExcelExporter\SimpleExcelExporter.csproj">
+    <ProjectReference Include="..\..\source\AWright18.SimpleExcelExporter\AWright18.SimpleExcelExporter.csproj">
       <Project>{7d8dbd67-8327-4a13-9e58-41082e28d404}</Project>
       <Name>SimpleExcelExporter</Name>
     </ProjectReference>
