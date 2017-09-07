@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OfficeOpenXml;
 
-namespace SimpleExcelExporter
+namespace AWright18.SimpleExcelExporter
 {
     internal class GenericExcelExporter
     {
@@ -19,11 +19,12 @@ namespace SimpleExcelExporter
 
         private readonly IEnumerable<string> _columnsToIgnore;
 
-        private Dictionary<string, string> _columnMapping;
+        private readonly Dictionary<string, string> _columnMapping;
 
-        private bool _includeHeaderRow;
+        private readonly bool _includeHeaderRow;
 
-        internal GenericExcelExporter(ExcelDocumentCreationOptions options, Func<dynamic, Dictionary<int, string>> indexRowValues, Func<dynamic, int, object> getValueFromRow)
+        internal GenericExcelExporter(ExcelDocumentCreationOptions options,
+            Func<dynamic, Dictionary<int, string>> indexRowValues, Func<dynamic, int, object> getValueFromRow)
         {
             _indexRowValues = indexRowValues;
 
@@ -95,7 +96,7 @@ namespace SimpleExcelExporter
 
             for (var columnNumber = 1; columnNumber <= _indexedRowValues.Count; columnNumber++)
             {
-                var data = GetValue(record,columnNumber);
+                var data = GetValue(record, columnNumber);
 
                 worksheet.SetValue(nextRowNumber, columnNumber, data);
 
@@ -122,7 +123,7 @@ namespace SimpleExcelExporter
 
             const int headerRow = 1;
 
-            for (int columnNumber = 1; columnNumber <= _indexedRowValues.Count; columnNumber++)
+            for (var columnNumber = 1; columnNumber <= _indexedRowValues.Count; columnNumber++)
             {
                 var headerName = GetHeaderName(columnNumber);
 
@@ -163,8 +164,7 @@ namespace SimpleExcelExporter
             var counter = 1;
             foreach (var key in _indexedRowValues.Keys)
             {
-                _excelColumnToRowIndex.Add(counter,key);
-
+                _excelColumnToRowIndex.Add(counter, key);
                 counter++;
             }
         }
@@ -174,7 +174,7 @@ namespace SimpleExcelExporter
             var rowIndex = _excelColumnToRowIndex[columnNumber];
 
             var columnName = _indexedRowValues[rowIndex];
-                
+
             var headerName = columnName.SeparateCamelCasingBySpaces();
 
             return headerName;
@@ -191,7 +191,7 @@ namespace SimpleExcelExporter
 
         private int GetColumNumberFromPropertyName(string propertyName)
         {
-            var rowIndex =  _indexedRowValues.FirstOrDefault(p => p.Value.ToLower() == propertyName.ToLower()).Key;
+            var rowIndex = _indexedRowValues.FirstOrDefault(p => p.Value.ToLower() == propertyName.ToLower()).Key;
 
             var columnNumber = _excelColumnToRowIndex.FirstOrDefault(p => p.Value == rowIndex).Key;
 
@@ -214,6 +214,5 @@ namespace SimpleExcelExporter
         {
             workSheet.Cells[workSheet.Dimension.Address].AutoFitColumns();
         }
-
     }
 }

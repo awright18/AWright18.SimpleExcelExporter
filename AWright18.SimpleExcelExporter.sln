@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleExcelExporter", "source\SimpleExcelExporter\SimpleExcelExporter.csproj", "{7D8DBD67-8327-4A13-9E58-41082E28D404}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{1E1F6C4A-DF9F-48EF-B25A-801A9C0886D9}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleExcelExporter.Tests", "Tests\SimpleExcelExporter.Tests\SimpleExcelExporter.Tests.csproj", "{40B68775-18AB-40A4-B6D2-AC4AECDBA641}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWright18.SimpleExcelExporter", "source\AWright18.SimpleExcelExporter\AWright18.SimpleExcelExporter.csproj", "{7D8DBD67-8327-4A13-9E58-41082E28D404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWright18.SimpleExcelExporter.Tests", "Tests\AWright18.SimpleExcelExporter.Tests\AWright18.SimpleExcelExporter.Tests.csproj", "{40B68775-18AB-40A4-B6D2-AC4AECDBA641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
