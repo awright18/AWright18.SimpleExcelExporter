@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using AWright18.SimpleExcelExporter;
 using Xunit;
 
-namespace SampleExcelExporter.Tests
+namespace AWright18.SimpleExcelExporter.Tests
 {
     public class ExcelExportTests
     {
