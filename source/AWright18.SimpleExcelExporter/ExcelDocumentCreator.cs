@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using OfficeOpenXml;
 
 namespace AWright18.SimpleExcelExporter
@@ -58,8 +59,8 @@ namespace AWright18.SimpleExcelExporter
             var documentCreationOptions = ExcelDocumentCreationOptions.Default(fileName);
 
             options?.Invoke(documentCreationOptions);
-
-            using (var document = new ExcelPackage())
+           
+            using (var document = GetExcelFile(fileName))
             {
                 var exporter = new GenericExcelExporter(documentCreationOptions,
                     ExcelExporter<TRecordType>.IndexRowValues, ExcelExporter<TRecordType>.GetValueFromRow);
@@ -68,6 +69,23 @@ namespace AWright18.SimpleExcelExporter
 
                 documentCreationOptions.ExecuteAfterDocumentCreated(document);
             }
+        }
+
+        public static ExcelPackage GetExcelFile(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    return new ExcelPackage(new FileInfo(fileName));
+                }
+                catch (Exception )
+                {
+                    return new ExcelPackage();
+                }
+            }
+
+            return new ExcelPackage();
         }
 
         public static void SaveRecordsToExcelWorksheet<TRecordType>(this IEnumerable<TRecordType> records,

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AWright18.SimpleExcelExporter;
 using Xunit;
 
@@ -6,6 +7,27 @@ namespace SampleExcelExporter.Tests
 {
     public class ExcelExportTests
     {
+
+        public class Person
+        {
+            public string Name { get; }
+            public int Age { get; }
+            public DateTime BirthDate { get; }
+
+            public Person(string name, int age, DateTime birthDate)
+            {
+                Name = name;
+                Age = age;
+                BirthDate = birthDate;
+            }
+
+            public static IEnumerable<Person> CreateTestRecords()
+            {
+                return new List<Person>() { new Person("Annie",23,DateTime.Now), new Person("Bob",45, DateTime.Now)};
+            }
+        }
+ 
+
         public class TestRecord
         {
             public TestRecord(string name, string value)
@@ -35,9 +57,28 @@ namespace SampleExcelExporter.Tests
             ExcelDocumentCreater.SaveRecordsToExcelWorksheet("sample.xlsx", testRecords, (o) =>
             {
                 o.WorksheetName = "Blah";
-                o.HideColumn("Name");
-                o.DoNotWriteColumn("Value");
-                o.RenameColumn("Value","Yo");
+//                o.HideColumn("Name");
+//                o.DoNotWriteColumn("Value");
+//                o.RenameColumn("Value","Yo");
+            });
+
+
+            ExcelDocumentCreater.SaveRecordsToExcelWorksheet("sample.xlsx", testRecords, (o) =>
+            {
+                o.WorksheetName = "Blah";
+                //                o.HideColumn("Name");
+                //                o.DoNotWriteColumn("Value");
+                //                o.RenameColumn("Value","Yo");
+            });
+
+
+            var personTestRecords = Person.CreateTestRecords();
+            ExcelDocumentCreater.SaveRecordsToExcelWorksheet("sample.xlsx", personTestRecords, (o) =>
+            {
+                o.WorksheetName = "Blah";
+                //                o.HideColumn("Name");
+                //                o.DoNotWriteColumn("Value");
+                //                o.RenameColumn("Value","Yo");
             });
         }
 

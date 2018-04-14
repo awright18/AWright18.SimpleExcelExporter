@@ -60,12 +60,8 @@ namespace AWright18.SimpleExcelExporter
 
         internal void AddRecordsToWorksheet(string worksheetName, dynamic records, ExcelPackage excelPackage)
         {
-            var workSheet = excelPackage.Workbook.Worksheets[worksheetName];
-
-            if (workSheet == null)
-            {
-                workSheet = excelPackage.Workbook.Worksheets.Add(worksheetName);
-            }
+            var workSheet = excelPackage.Workbook.Worksheets[worksheetName]
+                            ?? excelPackage.Workbook.Worksheets.Add(worksheetName);
 
             AddRowsToWorksheet(workSheet, records);
 
@@ -76,13 +72,18 @@ namespace AWright18.SimpleExcelExporter
 
         private void AddRowsToWorksheet(ExcelWorksheet worksheet, dynamic records)
         {
+            var isFirstPass = true;
             foreach (var record in records)
             {
-                SetRowNamesIndex(record);
+                if (isFirstPass)
+                {
+                    SetRowNamesIndex(record);
 
-                SetRowToExcelIndex();
+                    SetRowToExcelIndex();
 
-                AddHeaderRowToWorksheet(worksheet);
+                    AddHeaderRowToWorksheet(worksheet);
+                    isFirstPass = false;
+                }
 
                 AddDataRowToWorksheet(worksheet, record);
             }
@@ -107,7 +108,7 @@ namespace AWright18.SimpleExcelExporter
             }
         }
 
-        private void AddHeaderRowToWorksheet(ExcelWorksheet worksheet)
+        private void AddHeaderRowToWorksheet(ExcelWorksheet worksheet, int headerRow = 1)
         {
             if (!_includeHeaderRow)
             {
@@ -121,7 +122,14 @@ namespace AWright18.SimpleExcelExporter
                 return;
             }
 
-            const int headerRow = 1;
+            var lastRow = worksheet.Dimension?.End?.Row;
+
+            if (lastRow.HasValue)
+            {
+                lastRow++;
+            }
+
+            headerRow = lastRow ?? 1;
 
             for (var columnNumber = 1; columnNumber <= _indexedRowValues.Count; columnNumber++)
             {
